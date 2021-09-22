@@ -38,9 +38,8 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     car_manager.car_generator()
-    print(len(car_manager.active_cars))
     
-    car_manager.car_move()
+    car_manager.move_cars()
 
     if player.ycor() > 290:
         scoreboard.increase_score()

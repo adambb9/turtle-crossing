@@ -4,7 +4,6 @@ import random
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
-STARTING_Y_POS = random.randint(-280,280)
 
 
 #7. Create a car
@@ -17,7 +16,7 @@ class CarGenerator:
         self.active_cars = []
         self.num_active_cars = 10
     
-    def car_move(self):
+    def move_cars(self):
         for car in self.active_cars:
             car.forward(MOVE_INCREMENT)
 
@@ -29,7 +28,8 @@ class CarGenerator:
             new_car.penup()
             new_car.setheading(180)
             new_car.color(COLORS[random.randint(0,5)])
-            new_car.goto(300, random.randint(-250,280))
+            new_car.goto(300, random.randint(-200,280))
+            new_car.forward(STARTING_MOVE_DISTANCE)
             self.active_cars.append(new_car)
 
     def increase_active_cars(self, num):
@@ -38,7 +38,7 @@ class CarGenerator:
     def remove_car(self):
         for car in self.active_cars:
             index = self.active_cars.index(car)
-            if car.xcor() < -310:
+            if car.xcor() < -320:
                 self.active_cars.pop(index)
 
 
