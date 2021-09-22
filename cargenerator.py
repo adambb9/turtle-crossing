@@ -45,7 +45,7 @@ class CarGenerator:
                 self.active_cars.pop(index)
 
     def increase_car_speed(self):
-        self.car_speed *= 0.8
+        self.car_speed *= 0.9
 
     
 
