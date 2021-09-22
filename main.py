@@ -4,6 +4,8 @@ from player import Player
 from cargenerator import CarGenerator
 from score import Scoreboard
 
+#1. Create Screen
+
 
 screen = Screen()
 screen.setup(width=600, height=600)
