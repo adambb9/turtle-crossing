@@ -26,6 +26,8 @@ screen.tracer(0)
 player = Player()
 player.start_pos()
 
+scoreboard = Scoreboard()
+
 screen.listen()
 screen.onkey(player.player_move, "Up")
 
@@ -33,6 +35,10 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+
+    if player.ycor() > 290:
+        scoreboard.increase_score()
+        player.start_pos()
 
 
 
