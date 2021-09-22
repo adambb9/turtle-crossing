@@ -15,19 +15,23 @@ class CarGenerator(Turtle):
 
     def __init__(self):
         super().__init__()
+        self.active_cars = []
         self.shape("square")
         self.turtlesize(1,2,1)
         self.penup()
         self.setheading(180)
-        randnum = random.randint(0, 5)
-        self.color(COLORS[randnum])
-        self.start_pos()
-
-    def start_pos(self):
-        self.goto(300, STARTING_Y_POS)
+        random_color = random.randint(0, 5)
+        starting_y_pos = random.randint(-280, 280)
+        self.color(COLORS[random_color])
+        self.goto(300, starting_y_pos)
+        self.car_move()
     
     def car_move(self):
         self.forward(MOVE_INCREMENT)
+
+    def car_generator(self):
+        new_car = CarGenerator()
+        self.active_cars.append(new_car)
 
 
 

@@ -28,7 +28,7 @@ player.start_pos()
 
 scoreboard = Scoreboard()
 
-car = CarGenerator()
+car_manager = CarGenerator()
 
 screen.listen()
 screen.onkey(player.player_move, "Up")
@@ -37,15 +37,19 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-    car.car_move()
+    car_manager.car_generator()
+    
+    for car in car_manager.active_cars:
+        car.car_move()
 
     if player.ycor() > 290:
         scoreboard.increase_score()
         player.start_pos()
 
-    if player.distance(car) < 20:
-        scoreboard.game_over()
-        game_is_on = False
+    for car in car_manager.active_cars:
+        if player.distance(car) < 20:
+            scoreboard.game_over()
+            game_is_on = False
 
 
 
