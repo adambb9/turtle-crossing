@@ -5,6 +5,8 @@ ALIGNMENT = "center"
 FONT = ("Courier", 16, "normal")
 
 #4. Create Scoreboard class
+#5. Increase score by 1 every time turtle gets to the end
+#6. Create game over method
 
 class Scoreboard(Turtle):
     
@@ -18,7 +20,7 @@ class Scoreboard(Turtle):
         self.score = 1
         self.update_score()
 
-    #score board writes to screen but doesnt update
+
     def update_score(self):
         self.write(F"Level: {self.score}", align=ALIGNMENT, font=FONT)
         

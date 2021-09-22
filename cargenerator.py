@@ -19,7 +19,7 @@ class CarGenerator(Turtle):
         self.turtlesize(1,2,1)
         self.penup()
         self.setheading(180)
-        randnum = random.randint(0, 6)
+        randnum = random.randint(0, 5)
         self.color(COLORS[randnum])
         self.start_pos()
 
@@ -28,6 +28,7 @@ class CarGenerator(Turtle):
     
     def car_move(self):
         self.forward(MOVE_INCREMENT)
+
 
 
         
