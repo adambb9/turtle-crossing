@@ -35,7 +35,7 @@ screen.onkey(player.player_move, "Up")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(car_manager.car_speed)
     screen.update()
     car_manager.car_generator()
     
@@ -44,6 +44,7 @@ while game_is_on:
     if player.ycor() > 290:
         scoreboard.increase_score()
         car_manager.increase_active_cars(scoreboard.score)
+        car_manager.increase_car_speed()
         player.start_pos()
 
     for car in car_manager.active_cars:

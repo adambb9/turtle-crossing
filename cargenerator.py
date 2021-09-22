@@ -15,6 +15,7 @@ class CarGenerator:
     def __init__(self):
         self.active_cars = []
         self.num_active_cars = 10
+        self.car_speed = 0.1
     
     def move_cars(self):
         for car in self.active_cars:
@@ -40,6 +41,11 @@ class CarGenerator:
             index = self.active_cars.index(car)
             if car.xcor() < -320:
                 self.active_cars.pop(index)
+
+    def increase_car_speed(self):
+        self.car_speed *= 0.8
+
+    
 
 
 
