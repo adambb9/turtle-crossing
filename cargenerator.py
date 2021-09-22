@@ -11,27 +11,38 @@ STARTING_Y_POS = random.randint(-280,280)
 #8. Start car on random point on y axis
 
 
-class CarGenerator(Turtle):
+class CarGenerator:
 
     def __init__(self):
-        super().__init__()
         self.active_cars = []
-        self.shape("square")
-        self.turtlesize(1,2,1)
-        self.penup()
-        self.setheading(180)
-        random_color = random.randint(0, 5)
-        starting_y_pos = random.randint(-280, 280)
-        self.color(COLORS[random_color])
-        self.goto(300, starting_y_pos)
-        self.car_move()
+        self.num_active_cars = 10
     
     def car_move(self):
-        self.forward(MOVE_INCREMENT)
+        for car in self.active_cars:
+            car.forward(MOVE_INCREMENT)
 
     def car_generator(self):
-        new_car = CarGenerator()
-        self.active_cars.append(new_car)
+        if len(self.active_cars) < self.num_active_cars:
+            new_car = Turtle()
+            new_car.shape("square")
+            new_car.turtlesize(1,2,1)
+            new_car.penup()
+            new_car.setheading(180)
+            new_car.color(COLORS[random.randint(0,5)])
+            new_car.goto(300, random.randint(-250,280))
+            self.active_cars.append(new_car)
+
+    def increase_active_cars(self, num):
+        self.num_active_cars += num
+
+    def remove_car(self):
+        for car in self.active_cars:
+            index = self.active_cars.index(car)
+            if car.xcor() < -310:
+                self.active_cars.pop(index)
+
+
+
 
 
 
