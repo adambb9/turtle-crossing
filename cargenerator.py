@@ -8,6 +8,8 @@ MOVE_INCREMENT = 10
 
 #7. Create a car
 #8. Start car on random point on y axis
+#11. add more randomly generated cars
+#12. change speed of cars as level increase
 
 
 class CarGenerator:
